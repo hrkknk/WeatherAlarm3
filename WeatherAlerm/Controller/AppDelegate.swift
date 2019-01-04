@@ -17,52 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
-        var options: UNAuthorizationOptions
-        if #available(iOS 12.0, *) {
-            options =  [.alert, .badge, .sound, .provisional]
-        } else {
-            options =  [.alert, .badge, .sound]
-        }
-        
-        //Push通知を有効化
-        registerForPushNotifications(options: options)
-        
         return true
-    }
-    
-    
-    func registerForPushNotifications(options: UNAuthorizationOptions) {
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, error in
-            if error != nil {
-                print(error.debugDescription)
-                return
-            }
-            if granted {
-                print("Permission granted: \(granted)")
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
-    }
-    
-    //デバイストークン付きでPush通知を受け取った時の処理
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // 1. Convert device token to string
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        let token = tokenParts.joined()
-        // 2. Print device token to use for PNs payloads
-        print("Device Token: \(token)")
-    }
-    
-    //Notificationsの登録に失敗した時の処理
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        // 1. Print out error if PNs registration not successful
-        print("Failed to register for remote notifications with error: \(error)")
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

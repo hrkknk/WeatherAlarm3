@@ -18,7 +18,6 @@
 		CCBC3459211F495800BF6E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBC3457211F495800BF6E6D /* LaunchScreen.storyboard */; };
 		CCD8F966217B69BC00C4B00F /* AlermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8F964217B69BB00C4B00F /* AlermViewController.swift */; };
 		CCD8F967217B69BC00C4B00F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8F965217B69BB00C4B00F /* WeatherViewController.swift */; };
-		CCD980F82168AC8400C9B8D8 /* AlermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD980F72168AC8400C9B8D8 /* AlermTableViewCell.swift */; };
 		CCD980FC2168B5A100C9B8D8 /* Alerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD980FB2168B5A100C9B8D8 /* Alerm.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		CCBC345A211F495800BF6E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCD8F964217B69BB00C4B00F /* AlermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlermViewController.swift; sourceTree = "<group>"; };
 		CCD8F965217B69BB00C4B00F /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		CCD980F72168AC8400C9B8D8 /* AlermTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlermTableViewCell.swift; sourceTree = "<group>"; };
 		CCD980FB2168B5A100C9B8D8 /* Alerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerm.swift; sourceTree = "<group>"; };
 		D72903953426848619CA43A3 /* Pods-WeatherAlerm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAlerm.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAlerm/Pods-WeatherAlerm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +99,6 @@
 			children = (
 				CCBC3457211F495800BF6E6D /* LaunchScreen.storyboard */,
 				CCBC3452211F495600BF6E6D /* Main.storyboard */,
-				CCD980F72168AC8400C9B8D8 /* AlermTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,7 +354,6 @@
 				CCD8F967217B69BC00C4B00F /* WeatherViewController.swift in Sources */,
 				CCBC344F211F495600BF6E6D /* AppDelegate.swift in Sources */,
 				CC7E77CE2182316C00638140 /* AlermTableViewController.swift in Sources */,
-				CCD980F82168AC8400C9B8D8 /* AlermTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

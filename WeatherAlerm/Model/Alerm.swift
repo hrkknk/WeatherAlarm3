@@ -13,88 +13,64 @@ class Alerm: NSObject, NSCoding {
     
     //MARK: - Properties
     
-    var time: Date
-    var weather: String
-    var isOn: Bool
+    var sunnyAlermTime: Date
+    var rainyAlermTime: Date
 
-    
     //MARK: - Archiving Paths
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("alerms")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("alerm")
     
     
     //MARK: - Types
     
     struct PropertyKey {
-        static let time = "time"
-        static let weather = "weather"
-        static let isOn = "isOn"
+        static let sunnyAlermTime = "sunnyAlermTime"
+        static let rainyAlermTime = "rainyAlermTime"
     }
     
     
     //MARK: Initialization
     
-    init?(time: Date, weather: String) {
-        //TODO: エラー処理ちゃんと書く
-        if weather.isEmpty  {
-            return nil
-        }
+    init?(sunnyAlermTime: Date, rainyAlermTime: Date) {
         
         // Initialize stored properties.
-        self.time = time
-        self.weather = weather
-        //アラーム生成したらデフォルトON
-        self.isOn = true
+        self.sunnyAlermTime = sunnyAlermTime
+        self.rainyAlermTime = rainyAlermTime
     }
-    
-    init?(time: Date, weather: String, isOn: Bool) {
-        //TODO: エラー処理ちゃんと書く
-        if weather.isEmpty  {
-            return nil
-        }
-        
-        // Initialize stored properties.
-        self.time = time
-        self.weather = weather
-        self.isOn = isOn
-    }
-    
     
     //MARK: - Public methods
-    func getDateAsString() -> String {
-        // 日付のフォーマッタ
-        let dateFormatter = DateFormatter()
-        // 日付の出力形式を決める
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .none
-        // TODO: localeはあとで変更
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        
-        return dateFormatter.string(from: time)
-    }
+//    func getDateAsString() -> String {
+//        // 日付のフォーマッタ
+//        let dateFormatter = DateFormatter()
+//        // 日付の出力形式を決める
+//        dateFormatter.timeStyle = .short
+//        dateFormatter.dateStyle = .none
+//        // TODO: localeはあとで変更
+//        dateFormatter.locale = Locale(identifier: "ja_JP")
+//
+//        return dateFormatter.string(from: sunnyAlermTime)
+//    }
     
     
     //MARK: - NSCoding
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(time, forKey: PropertyKey.time)
-        aCoder.encode(weather, forKey: PropertyKey.weather)
-        aCoder.encode(isOn, forKey: PropertyKey.isOn)
+        aCoder.encode(sunnyAlermTime, forKey: PropertyKey.sunnyAlermTime)
+        aCoder.encode(rainyAlermTime, forKey: PropertyKey.rainyAlermTime)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let time = aDecoder.decodeObject(forKey: PropertyKey.time) as? Date else {
+        guard let sunnyAlermTime = aDecoder.decodeObject(forKey: PropertyKey.sunnyAlermTime) as? Date else {
             os_log("Unable to decode the time for a Alerm object.", log: OSLog.default, type: .debug)
             return nil
         }
-        guard let weather = aDecoder.decodeObject(forKey: PropertyKey.weather) as? String else {
-            os_log("Unable to decode the weather for a Alerm object.", log: OSLog.default, type: .debug)
+        guard let rainyAlermTime = aDecoder.decodeObject(forKey: PropertyKey.rainyAlermTime) as? Date else {
+            os_log("Unable to decode the time for a Alerm object.", log: OSLog.default, type: .debug)
             return nil
         }
-        let isOn = aDecoder.decodeBool(forKey: PropertyKey.isOn)
         
         // Must call designated initializer.
-        self.init(time: time, weather: weather, isOn: isOn)
+        self.init(sunnyAlermTime: sunnyAlermTime, rainyAlermTime: rainyAlermTime)
     }
     
 }
