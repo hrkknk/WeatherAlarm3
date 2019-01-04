@@ -1,6 +1,6 @@
 //
-//  Alerm.swift
-//  WeatherAlerm
+//  Alarm.swift
+//  WeatherAlarm
 //
 //  Created by 金子宏樹 on 2018/10/06.
 //  Copyright © 2018年 金子宏樹. All rights reserved.
@@ -13,30 +13,30 @@ class Alarm: NSObject, NSCoding {
     
     //MARK: - Properties
     
-    var sunnyAlermTime: Date
-    var rainyAlermTime: Date
+    var sunnyAlarmTime: Date
+    var rainyAlarmTime: Date
 
     //MARK: - Archiving Paths
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("alerm")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("alarm")
     
     
     //MARK: - Types
     
     struct PropertyKey {
-        static let sunnyAlermTime = "sunnyAlermTime"
-        static let rainyAlermTime = "rainyAlermTime"
+        static let sunnyAlarmTime = "sunnyAlarmTime"
+        static let rainyAlarmTime = "rainyAlarmTime"
     }
     
     
     //MARK: Initialization
     
-    init?(sunnyAlermTime: Date, rainyAlermTime: Date) {
+    init?(sunnyAlarmTime: Date, rainyAlarmTime: Date) {
         
         // Initialize stored properties.
-        self.sunnyAlermTime = sunnyAlermTime
-        self.rainyAlermTime = rainyAlermTime
+        self.sunnyAlarmTime = sunnyAlarmTime
+        self.rainyAlarmTime = rainyAlarmTime
     }
     
     //MARK: - Public methods
@@ -49,7 +49,7 @@ class Alarm: NSObject, NSCoding {
         // TODO: localeはあとで変更
         dateFormatter.locale = Locale(identifier: "ja_JP")
 
-        return dateFormatter.string(from: sunnyAlermTime)
+        return dateFormatter.string(from: sunnyAlarmTime)
     }
     
     func getRainyAlarmTimeAsString() -> String {
@@ -61,28 +61,28 @@ class Alarm: NSObject, NSCoding {
         // TODO: localeはあとで変更
         dateFormatter.locale = Locale(identifier: "ja_JP")
         
-        return dateFormatter.string(from: rainyAlermTime)
+        return dateFormatter.string(from: rainyAlarmTime)
     }
     
     
     //MARK: - NSCoding
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(sunnyAlermTime, forKey: PropertyKey.sunnyAlermTime)
-        aCoder.encode(rainyAlermTime, forKey: PropertyKey.rainyAlermTime)
+        aCoder.encode(sunnyAlarmTime, forKey: PropertyKey.sunnyAlarmTime)
+        aCoder.encode(rainyAlarmTime, forKey: PropertyKey.rainyAlarmTime)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let sunnyAlermTime = aDecoder.decodeObject(forKey: PropertyKey.sunnyAlermTime) as? Date else {
-            os_log("Unable to decode the time for a Alerm object.", log: OSLog.default, type: .debug)
+        guard let sunnyAlarmTime = aDecoder.decodeObject(forKey: PropertyKey.sunnyAlarmTime) as? Date else {
+            os_log("Unable to decode the time for a Alarm object.", log: OSLog.default, type: .debug)
             return nil
         }
-        guard let rainyAlermTime = aDecoder.decodeObject(forKey: PropertyKey.rainyAlermTime) as? Date else {
-            os_log("Unable to decode the time for a Alerm object.", log: OSLog.default, type: .debug)
+        guard let rainyAlarmTime = aDecoder.decodeObject(forKey: PropertyKey.rainyAlarmTime) as? Date else {
+            os_log("Unable to decode the time for a Alarm object.", log: OSLog.default, type: .debug)
             return nil
         }
         
         // Must call designated initializer.
-        self.init(sunnyAlermTime: sunnyAlermTime, rainyAlermTime: rainyAlermTime)
+        self.init(sunnyAlarmTime: sunnyAlarmTime, rainyAlarmTime: rainyAlarmTime)
     }
     
 }

@@ -19,31 +19,18 @@ class AlarmViewController: UIViewController {
     @IBOutlet weak var rainyAlarmDatePicker: UIDatePicker!
 
     //MARK: - Actions
-    @IBAction func alarmSetButton(_ sender: UIButton) {
+    @IBAction func setAlarm(_ sender: UIButton) {
         saveAlarm()
     }
-    
-    
-    
-//    @IBAction func cancel(_ sender: UIBarButtonItem) {
-//        //AddAlarmで遷移したかEditAlarmで遷移したかによってcancelの方法を変える
-//        if presentingViewController is UINavigationController {
-//            dismiss(animated: true, completion: nil)
-//        }
-//        else if let owningNavigationController = navigationController {
-//            owningNavigationController.popViewController(animated: true)
-//        }
-//        else {
-//            fatalError("The MealViewController is not inside a navigation controller.")
-//        }
-//    }
     
     @IBAction func setSunnyAlarm(_ sender: UIDatePicker) {
         alarm!.sunnyAlarmTime = sender.date
     }
+    
     @IBAction func setRainyAlarm(_ sender: UIDatePicker) {
         alarm!.rainyAlarmTime = sender.date
     }
+    
     //MARK: - Methods
     override func viewDidLoad() {
 

@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WeatherAlerm.xcodeproj">
+      location = "group:/Users/hrkknk/Desktop/WeatherAlarm3/WeatherAlarm.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WeatherAlarm.xcodeproj">
    </FileRef>
 </Workspace>
