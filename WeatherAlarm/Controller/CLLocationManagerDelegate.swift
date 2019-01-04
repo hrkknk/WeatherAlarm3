@@ -1,6 +1,6 @@
 ////
 ////  CLLocationManagerDelegate.swift
-////  WeatherAlerm
+////  WeatherAlarm
 ////
 ////  Created by Ryo Fujimoto on 2018/11/28.
 ////  Copyright © 2018 金子宏樹. All rights reserved.
@@ -8,7 +8,7 @@
 //
 //import CoreLocation
 //
-//extension AlermTableViewController: CLLocationManagerDelegate {
+//extension AlarmTableViewController: CLLocationManagerDelegate {
 //    
 //    //MARK: - 位置情報取得
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

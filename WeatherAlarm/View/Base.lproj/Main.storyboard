@@ -13,7 +13,7 @@
         <!--Add Alerm-->
         <scene sceneID="Uxu-fv-uj3">
             <objects>
-                <viewController id="qFs-eU-oB3" customClass="AlermViewController" customModule="WeatherAlerm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qFs-eU-oB3" customClass="AlarmViewController" customModule="WeatherAlerm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VBD-k5-zgA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

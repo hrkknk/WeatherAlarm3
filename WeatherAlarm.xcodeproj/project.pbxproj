@@ -10,16 +10,16 @@
 		27E00B92FEDEA3A6136A8B74 /* Pods_WeatherAlermTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9139E5E81926BFF860E2B3BB /* Pods_WeatherAlermTests.framework */; };
 		2ADDC08321AE0B240042DE40 /* CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADDC08221AE0B240042DE40 /* CLLocationManagerDelegate.swift */; };
 		3A8704AEEF327DA35FFFFB9B /* Pods_WeatherAlerm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D57CE285FBD7222A9D05C0B /* Pods_WeatherAlerm.framework */; };
-		CC25685A2174F1C200156CD9 /* WeatherAlermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2568592174F1C200156CD9 /* WeatherAlermTests.swift */; };
+		CC25685A2174F1C200156CD9 /* WeatherAlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2568592174F1C200156CD9 /* WeatherAlarmTests.swift */; };
 		CC3C007421DF62CF0081B8CD /* AlarmStandbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C007321DF62CF0081B8CD /* AlarmStandbyViewController.swift */; };
-		CC7E77CE2182316C00638140 /* AlermTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E77CD2182316C00638140 /* AlermTableViewController.swift */; };
+		CC7E77CE2182316C00638140 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E77CD2182316C00638140 /* AlarmTableViewController.swift */; };
 		CCBC344F211F495600BF6E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBC344E211F495600BF6E6D /* AppDelegate.swift */; };
 		CCBC3454211F495600BF6E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBC3452211F495600BF6E6D /* Main.storyboard */; };
 		CCBC3456211F495800BF6E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCBC3455211F495800BF6E6D /* Assets.xcassets */; };
 		CCBC3459211F495800BF6E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBC3457211F495800BF6E6D /* LaunchScreen.storyboard */; };
-		CCD8F966217B69BC00C4B00F /* AlermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8F964217B69BB00C4B00F /* AlermViewController.swift */; };
+		CCD8F966217B69BC00C4B00F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8F964217B69BB00C4B00F /* AlarmViewController.swift */; };
 		CCD8F967217B69BC00C4B00F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8F965217B69BB00C4B00F /* WeatherViewController.swift */; };
-		CCD980FC2168B5A100C9B8D8 /* Alerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD980FB2168B5A100C9B8D8 /* Alerm.swift */; };
+		CCD980FC2168B5A100C9B8D8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD980FB2168B5A100C9B8D8 /* Alarm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,19 +40,19 @@
 		9139E5E81926BFF860E2B3BB /* Pods_WeatherAlermTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAlermTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9611A4320DD91F562745534A /* Pods-WeatherAlerm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAlerm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAlerm/Pods-WeatherAlerm.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2568572174F1C200156CD9 /* WeatherAlermTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAlermTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC2568592174F1C200156CD9 /* WeatherAlermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAlermTests.swift; sourceTree = "<group>"; };
+		CC2568592174F1C200156CD9 /* WeatherAlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAlarmTests.swift; sourceTree = "<group>"; };
 		CC25685B2174F1C200156CD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC3C007321DF62CF0081B8CD /* AlarmStandbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStandbyViewController.swift; sourceTree = "<group>"; };
-		CC7E77CD2182316C00638140 /* AlermTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlermTableViewController.swift; sourceTree = "<group>"; };
+		CC7E77CD2182316C00638140 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 		CCBC344B211F495600BF6E6D /* WeatherAlerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAlerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBC344E211F495600BF6E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCBC3453211F495600BF6E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCBC3455211F495800BF6E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCBC3458211F495800BF6E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCBC345A211F495800BF6E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCD8F964217B69BB00C4B00F /* AlermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlermViewController.swift; sourceTree = "<group>"; };
+		CCD8F964217B69BB00C4B00F /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		CCD8F965217B69BB00C4B00F /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		CCD980FB2168B5A100C9B8D8 /* Alerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerm.swift; sourceTree = "<group>"; };
+		CCD980FB2168B5A100C9B8D8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		D72903953426848619CA43A3 /* Pods-WeatherAlerm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAlerm.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAlerm/Pods-WeatherAlerm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				CCBC344E211F495600BF6E6D /* AppDelegate.swift */,
-				CC7E77CD2182316C00638140 /* AlermTableViewController.swift */,
+				CC7E77CD2182316C00638140 /* AlarmTableViewController.swift */,
 				2ADDC08221AE0B240042DE40 /* CLLocationManagerDelegate.swift */,
-				CCD8F964217B69BB00C4B00F /* AlermViewController.swift */,
+				CCD8F964217B69BB00C4B00F /* AlarmViewController.swift */,
 				CC3C007321DF62CF0081B8CD /* AlarmStandbyViewController.swift */,
 				CCD8F965217B69BB00C4B00F /* WeatherViewController.swift */,
 			);
@@ -121,7 +121,7 @@
 		2A4C1E9921A84BF900A1CF08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CCD980FB2168B5A100C9B8D8 /* Alerm.swift */,
+				CCD980FB2168B5A100C9B8D8 /* Alarm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 		CC2568582174F1C200156CD9 /* WeatherAlermTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC2568592174F1C200156CD9 /* WeatherAlermTests.swift */,
+				CC2568592174F1C200156CD9 /* WeatherAlarmTests.swift */,
 				CC25685B2174F1C200156CD9 /* Info.plist */,
 			);
 			path = WeatherAlermTests;
@@ -138,7 +138,7 @@
 		CCBC3442211F495600BF6E6D = {
 			isa = PBXGroup;
 			children = (
-				CCBC344D211F495600BF6E6D /* WeatherAlerm */,
+				CCBC344D211F495600BF6E6D /* WeatherAlarm */,
 				CC2568582174F1C200156CD9 /* WeatherAlermTests */,
 				CCBC344C211F495600BF6E6D /* Products */,
 				125C810BBDC164150C572961 /* Pods */,
@@ -155,7 +155,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CCBC344D211F495600BF6E6D /* WeatherAlerm */ = {
+		CCBC344D211F495600BF6E6D /* WeatherAlarm */ = {
 			isa = PBXGroup;
 			children = (
 				2A4C1E9721A84A9900A1CF08 /* View */,
@@ -164,7 +164,7 @@
 				CCBC3455211F495800BF6E6D /* Assets.xcassets */,
 				CCBC345A211F495800BF6E6D /* Info.plist */,
 			);
-			path = WeatherAlerm;
+			path = WeatherAlarm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +228,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CCBC3446211F495600BF6E6D /* Build configuration list for PBXProject "WeatherAlerm" */;
+			buildConfigurationList = CCBC3446211F495600BF6E6D /* Build configuration list for PBXProject "WeatherAlarm" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -343,7 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC25685A2174F1C200156CD9 /* WeatherAlermTests.swift in Sources */,
+				CC25685A2174F1C200156CD9 /* WeatherAlarmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,13 +351,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCD8F966217B69BC00C4B00F /* AlermViewController.swift in Sources */,
+				CCD8F966217B69BC00C4B00F /* AlarmViewController.swift in Sources */,
 				CC3C007421DF62CF0081B8CD /* AlarmStandbyViewController.swift in Sources */,
 				2ADDC08321AE0B240042DE40 /* CLLocationManagerDelegate.swift in Sources */,
-				CCD980FC2168B5A100C9B8D8 /* Alerm.swift in Sources */,
+				CCD980FC2168B5A100C9B8D8 /* Alarm.swift in Sources */,
 				CCD8F967217B69BC00C4B00F /* WeatherViewController.swift in Sources */,
 				CCBC344F211F495600BF6E6D /* AppDelegate.swift in Sources */,
-				CC7E77CE2182316C00638140 /* AlermTableViewController.swift in Sources */,
+				CC7E77CE2182316C00638140 /* AlarmTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +565,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.knk.hrk.WeatherAlerm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.knk.hrk.WeatherAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -585,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.knk.hrk.WeatherAlerm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.knk.hrk.WeatherAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -604,7 +604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCBC3446211F495600BF6E6D /* Build configuration list for PBXProject "WeatherAlerm" */ = {
+		CCBC3446211F495600BF6E6D /* Build configuration list for PBXProject "WeatherAlarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CCBC345B211F495800BF6E6D /* Debug */,

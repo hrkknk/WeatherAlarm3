@@ -1,6 +1,6 @@
 //
-//  WeatherAlermTests.swift
-//  WeatherAlermTests
+//  WeatherAlarmTests.swift
+//  WeatherAlarmTests
 //
 //  Created by 金子宏樹 on 2018/10/16.
 //  Copyright © 2018年 金子宏樹. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class WeatherAlermTests: XCTestCase {
+class WeatherAlarmTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

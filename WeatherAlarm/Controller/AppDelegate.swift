@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  WeatherAlerm
+//  WeatherAlarm
 //
 //  Created by 金子宏樹 on 2018/08/12.
 //  Copyright © 2018年 金子宏樹. All rights reserved.

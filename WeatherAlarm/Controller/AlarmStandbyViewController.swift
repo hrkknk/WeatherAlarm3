@@ -1,6 +1,6 @@
 //
 //  AlarmStandbyViewController.swift
-//  WeatherAlerm
+//  WeatherAlarm
 //
 //  Created by 金子宏樹 on 2019/01/04.
 //  Copyright © 2019 金子宏樹. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 
 class AlarmStandbyViewController: UIViewController {
     
-    //TODO: Stringじゃなく、Alerm型で受け渡す(後でdate型が必要になるので、、)
+    //TODO: Stringじゃなく、Alarm型で受け渡す(後でdate型が必要になるので、、)
     var sunnyAlarmTimeString: String?
     var rainyAlarmTimeString: String?
     @IBOutlet weak var sunnyAlarmTime: UILabel!
@@ -24,7 +24,7 @@ class AlarmStandbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //前の画面(AlermViewController)のprepare()で渡してもらったdate情報をラベルにセット
+        //前の画面(AlarmViewController)のprepare()で渡してもらったdate情報をラベルにセット
         sunnyAlarmTime.text = sunnyAlarmTimeString
         rainyAlarmTime.text = rainyAlarmTimeString
 

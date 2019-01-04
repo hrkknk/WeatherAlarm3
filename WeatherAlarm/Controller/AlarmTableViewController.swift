@@ -1,6 +1,6 @@
 ////
-////  AlermTableViewController.swift
-////  WeatherAlerm
+////  AlarmTableViewController.swift
+////  WeatherAlarm
 ////
 ////  Created by 金子宏樹 on 2018/10/26.
 ////  Copyright © 2018年 金子宏樹. All rights reserved.
@@ -12,11 +12,11 @@
 //import Alamofire
 //import SwiftyJSON
 //
-//class AlermTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+//class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //
 //    //MARK: - Properties
 //    //アラームモデル
-//    var alerms = [Alerm]()
+//    var alarms = [Alarm]()
 //
 //    //Sunny/Rainyどっちのアラームリストを表示するか
 //    var selectedWeather: String?
@@ -29,7 +29,7 @@
 //    let APP_ID = "3486f122e589efd3e860f3a10775ce47"
 //
 //    @IBOutlet weak var addButton: UIBarButtonItem!
-//    @IBOutlet weak var alermList: UITableView!
+//    @IBOutlet weak var alarmList: UITableView!
 //
 //
 //    //MARK: - Actions
@@ -42,21 +42,21 @@
 //        self.selectedWeather = "Rainy"
 //    }
 //
-//    //AlermViewController画面のsaveButtonを押して戻ってきた時の処理
-//    @IBAction func unwindToAlermList(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.source as? AlermViewController, let alerm = sourceViewController.alerm {
-//            if let selectedIndexPath = alermList.indexPathForSelectedRow {
-//                // Update an existing alerm.
-//                alerms[selectedIndexPath.row] = alerm
-//                alermList.reloadRows(at: [selectedIndexPath], with: .none)
+//    //AlarmViewController画面のsaveButtonを押して戻ってきた時の処理
+//    @IBAction func unwindToAlarmList(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.source as? AlarmViewController, let alarm = sourceViewController.alarm {
+//            if let selectedIndexPath = alarmList.indexPathForSelectedRow {
+//                // Update an existing alarm.
+//                alarms[selectedIndexPath.row] = alarm
+//                alarmList.reloadRows(at: [selectedIndexPath], with: .none)
 //            } else {
-//                // Add a new alerm.
-//                let newIndexPath = IndexPath(row: alerms.count, section: 0)
+//                // Add a new alarm.
+//                let newIndexPath = IndexPath(row: alarms.count, section: 0)
 //
-//                alerms.append(alerm)
-//                alermList.insertRows(at: [newIndexPath], with: .automatic)
+//                alarms.append(alarm)
+//                alarmList.insertRows(at: [newIndexPath], with: .automatic)
 //            }
-//            saveAlerms()
+//            saveAlarms()
 //            //画面遷移する前に編集モード解除
 //            setEditing(false, animated: false)
 //        }
@@ -77,23 +77,23 @@
 //        locationManager.startUpdatingLocation()
 //
 //        //selectedWeatherと一致するアラームだけモデルに追加
-//        addAlermsOfSelectedWeather(alerms)
+//        addAlarmsOfSelectedWeather(alarms)
 //
 //        //ナビゲーションバーの左上にeditボタンを表示
 //        navigationItem.leftBarButtonItem = editButtonItem
 //
 //        //保存データがある場合、それを読み込む
-//        if let savedAlerms = loadAlerms() {
-//            alerms += savedAlerms
+//        if let savedAlarms = loadAlarms() {
+//            alarms += savedAlarms
 //        } else {
 //            // Load the sample data.
-//            alerms += loadSampleAlerms()
+//            alarms += loadSampleAlarms()
 //        }
 //    }
 //
 //    override func viewWillAppear(_ animated: Bool) {
 //        //アラーム未登録の場合、Editボタンは無効化
-//        if alerms.count <= 0 {
+//        if alarms.count <= 0 {
 //            editButtonItem.isEnabled = false
 //        } else {
 //            editButtonItem.isEnabled = true
@@ -101,7 +101,7 @@
 //
 //        //アラーム再表示
 //        for cell in getAllCells() {
-//            cell.timeLabel.text = alerms[cell.getRow()].getDateAsString()
+//            cell.timeLabel.text = alarms[cell.getRow()].getDateAsString()
 //        }
 //    }
 //
@@ -117,7 +117,7 @@
 //            cell.isOnSwitch.isHidden = editing
 //        }
 //        //        }
-//        alermList.isEditing = editing
+//        alarmList.isEditing = editing
 //    }
 //
 //    override func didReceiveMemoryWarning() {
@@ -159,18 +159,18 @@
 //    }
 //
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return alerms.count
+//        return alarms.count
 //    }
 //
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlermTableViewCell", for: indexPath) as? AlermTableViewCell else {
-//            fatalError("AlermTableViewCell型じゃないよ！")
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as? AlarmTableViewCell else {
+//            fatalError("AlarmTableViewCell型じゃないよ！")
 //        }
 //
-//        let alerm = alerms[indexPath.row]
+//        let alarm = alarms[indexPath.row]
 //
-//        cell.timeLabel.text = alerm.getDateAsString()
+//        cell.timeLabel.text = alarm.getDateAsString()
 //        cell.delegate = self
 //
 //        //自分のRowが何番目かCell側に記憶しておく
@@ -183,8 +183,8 @@
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        if editingStyle == .delete {
 //            //アラームを削除
-//            alerms.remove(at: indexPath.row)
-//            saveAlerms()
+//            alarms.remove(at: indexPath.row)
+//            saveAlarms()
 //            tableView.deleteRows(at: [indexPath], with: .fade)
 //        } else if editingStyle == .insert {
 //
@@ -196,8 +196,8 @@
 //    }
 //
 //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        //編集モードでない時はEditAlermのsegueをOFFにする
-//        if !alermList.isEditing && identifier == "EditAlerm" {
+//        //編集モードでない時はEditAlarmのsegueをOFFにする
+//        if !alarmList.isEditing && identifier == "EditAlarm" {
 //            return false
 //        }
 //
@@ -209,36 +209,36 @@
 //        super.prepare(for: segue, sender: sender)
 //
 //        switch(segue.identifier ?? "") {
-//        case "AddAlerm": //"Add"ボタンによる画面遷移の場合
+//        case "AddAlarm": //"Add"ボタンによる画面遷移の場合
 //            //UINavigationControllerを取得
 //            guard let navigationController = segue.destination as? UINavigationController else {
 //                fatalError("Unexpected destination: \(segue.destination)")
 //            }
 //            //UINavigationControllerの次の画面(WeatherViewController)を取得
-//            guard let alermViewController = navigationController.topViewController as? AlermViewController else {
+//            guard let alarmViewController = navigationController.topViewController as? AlarmViewController else {
 //                fatalError("Unexpected topViewController: \(String(describing: navigationController.topViewController))")
 //            }
 //
-//            //次の画面(AlermViewController)のデフォルトWeatherにSunny/Rainyをセット
-//            alermViewController.weatherOfPreviousView = self.selectedWeather!
+//            //次の画面(AlarmViewController)のデフォルトWeatherにSunny/Rainyをセット
+//            alarmViewController.weatherOfPreviousView = self.selectedWeather!
 //
-//        case "EditAlerm": //編集モードでアラームセルをタップして画面遷移する場合
-//            guard let alermViewController = segue.destination as? AlermViewController else {
+//        case "EditAlarm": //編集モードでアラームセルをタップして画面遷移する場合
+//            guard let alarmViewController = segue.destination as? AlarmViewController else {
 //                fatalError("Unexpected destination: \(segue.destination)")
 //            }
 //
 //            //タップしたアラームセルを取得
-//            guard let selectedAlermCell = sender as? AlermTableViewCell else {
+//            guard let selectedAlarmCell = sender as? AlarmTableViewCell else {
 //                fatalError("Unexpected sender: \(String(describing: sender))")
 //            }
 //
 //            //アラームセルのindexPathを取得
-//            guard let indexPath = alermList.indexPath(for: selectedAlermCell) else {
+//            guard let indexPath = alarmList.indexPath(for: selectedAlarmCell) else {
 //                fatalError("The selected cell is not being displayed by the table")
 //            }
 //
 //            //indexPathを元に、対象のモデルを取得してセット
-//            alermViewController.alerm = alerms[indexPath.row]
+//            alarmViewController.alarm = alarms[indexPath.row]
 //
 //        default:
 //            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -248,23 +248,23 @@
 //
 //    //MARK: - Private Methods
 //
-//    fileprivate func addAlermsOfSelectedWeather(_ alerms: [Alerm]) {
-//        for alerm in alerms {
-//            if alerm.weather == self.selectedWeather {
-//                self.alerms += [alerm]
+//    fileprivate func addAlarmsOfSelectedWeather(_ alarms: [Alarm]) {
+//        for alarm in alarms {
+//            if alarm.weather == self.selectedWeather {
+//                self.alarms += [alarm]
 //            }
 //        }
 //    }
 //
 //    //全てのセルを取得する
-//    private func getAllCells() -> [AlermTableViewCell] {
-//        var cells = [AlermTableViewCell]()
+//    private func getAllCells() -> [AlarmTableViewCell] {
+//        var cells = [AlarmTableViewCell]()
 //
 //        //TODO: 煩雑だからなんとかする
-//        for i in 0...alermList.numberOfSections - 1 {
-//            for j in 0...alermList.numberOfRows(inSection: i) {
-//                if let cell = alermList.cellForRow(at: NSIndexPath(row: j, section: i) as IndexPath) {
-//                    cells.append(cell as! AlermTableViewCell)
+//        for i in 0...alarmList.numberOfSections - 1 {
+//            for j in 0...alarmList.numberOfRows(inSection: i) {
+//                if let cell = alarmList.cellForRow(at: NSIndexPath(row: j, section: i) as IndexPath) {
+//                    cells.append(cell as! AlarmTableViewCell)
 //                }
 //            }
 //        }
@@ -272,35 +272,35 @@
 //    }
 //
 //
-//    private func saveAlerms() {
-//        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(alerms, toFile: Alerm.ArchiveURL.path)
+//    private func saveAlarms() {
+//        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(alarms, toFile: Alarm.ArchiveURL.path)
 //        if isSuccessfulSave {
-//            os_log("Alerms successfully saved.", log: OSLog.default, type: .debug)
+//            os_log("Alarms successfully saved.", log: OSLog.default, type: .debug)
 //        } else {
-//            os_log("Failed to save alerms...", log: OSLog.default, type: .error)
+//            os_log("Failed to save alarms...", log: OSLog.default, type: .error)
 //        }
 //    }
 //
-//    private func loadAlerms() -> [Alerm]?  {
-//        return NSKeyedUnarchiver.unarchiveObject(withFile: Alerm.ArchiveURL.path) as? [Alerm]
+//    private func loadAlarms() -> [Alarm]?  {
+//        return NSKeyedUnarchiver.unarchiveObject(withFile: Alarm.ArchiveURL.path) as? [Alarm]
 //    }
 //
 //    //TODO: テスト用。あとで消すこと
-//    private func loadSampleAlerms() -> [Alerm] {
+//    private func loadSampleAlarms() -> [Alarm] {
 //
-//        guard let sampleAlerm1 = Alerm(time: Date(), weather: "Sunny") else {
-//            fatalError("Unable to instantiate alerm2")
+//        guard let sampleAlarm1 = Alarm(time: Date(), weather: "Sunny") else {
+//            fatalError("Unable to instantiate alarm2")
 //        }
 //
-//        guard let sampleAlerm2 = Alerm(time: Date(), weather: "Rainy") else {
-//            fatalError("Unable to instantiate alerm2")
+//        guard let sampleAlarm2 = Alarm(time: Date(), weather: "Rainy") else {
+//            fatalError("Unable to instantiate alarm2")
 //        }
 //
-//        guard let sampleAlerm3 = Alerm(time: Date(), weather: "Rainy") else {
-//            fatalError("Unable to instantiate alerm3")
+//        guard let sampleAlarm3 = Alarm(time: Date(), weather: "Rainy") else {
+//            fatalError("Unable to instantiate alarm3")
 //        }
 //
-//        return [sampleAlerm1, sampleAlerm2, sampleAlerm3]
+//        return [sampleAlarm1, sampleAlarm2, sampleAlarm3]
 //    }
 //}
 //

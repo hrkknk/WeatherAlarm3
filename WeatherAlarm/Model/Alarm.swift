@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class Alerm: NSObject, NSCoding {
+class Alarm: NSObject, NSCoding {
     
     //MARK: - Properties
     

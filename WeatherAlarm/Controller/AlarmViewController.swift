@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  WeatherAlerm
+//  WeatherAlarm
 //
 //  Created by 金子宏樹 on 2018/08/12.
 //  Copyright © 2018年 金子宏樹. All rights reserved.
@@ -9,24 +9,24 @@
 import UIKit
 import os.log
 
-class AlermViewController: UIViewController {
+class AlarmViewController: UIViewController {
 
     // MARK: - Properties
-    var alerm: Alerm?
+    var alarm: Alarm?
 
     //MARK: - Outlets
-    @IBOutlet weak var sunnyAlermDatePicker: UIDatePicker!
-    @IBOutlet weak var rainyAlermDatePicker: UIDatePicker!
+    @IBOutlet weak var sunnyAlarmDatePicker: UIDatePicker!
+    @IBOutlet weak var rainyAlarmDatePicker: UIDatePicker!
 
     //MARK: - Actions
-    @IBAction func alermSetButton(_ sender: UIButton) {
-        saveAlerm()
+    @IBAction func alarmSetButton(_ sender: UIButton) {
+        saveAlarm()
     }
     
     
     
 //    @IBAction func cancel(_ sender: UIBarButtonItem) {
-//        //AddAlermで遷移したかEditAlermで遷移したかによってcancelの方法を変える
+//        //AddAlarmで遷移したかEditAlarmで遷移したかによってcancelの方法を変える
 //        if presentingViewController is UINavigationController {
 //            dismiss(animated: true, completion: nil)
 //        }
@@ -38,11 +38,11 @@ class AlermViewController: UIViewController {
 //        }
 //    }
     
-    @IBAction func setSunnyAlerm(_ sender: UIDatePicker) {
-        alerm!.sunnyAlermTime = sender.date
+    @IBAction func setSunnyAlarm(_ sender: UIDatePicker) {
+        alarm!.sunnyAlarmTime = sender.date
     }
-    @IBAction func setRainyAlerm(_ sender: UIDatePicker) {
-        alerm!.rainyAlermTime = sender.date
+    @IBAction func setRainyAlarm(_ sender: UIDatePicker) {
+        alarm!.rainyAlarmTime = sender.date
     }
     //MARK: - Methods
     override func viewDidLoad() {
@@ -51,20 +51,20 @@ class AlermViewController: UIViewController {
         
         //TODO: データロード
         //保存データがある場合、それを読み込む
-        if let savedAlerm = loadAlerm() {
-            alerm = savedAlerm
+        if let savedAlarm = loadAlarm() {
+            alarm = savedAlarm
         } else {
             // Load the sample data.
-//            alerm += loadSampleAlerm()
+//            alarm += loadSampleAlarm()
         }
         //編集モードの場合、各UIの値を前画面から渡されたアラームの内容に更新
-        if let alerm = alerm {
+        if let alarm = alarm {
             //時刻引き継ぎ
-            self.sunnyAlermDatePicker.date = alerm.sunnyAlermTime
-            self.rainyAlermDatePicker.date = alerm.rainyAlermTime
+            self.sunnyAlarmDatePicker.date = alarm.sunnyAlarmTime
+            self.rainyAlarmDatePicker.date = alarm.rainyAlarmTime
             //TODO: 他のUIも初期化
-        } else { //編集モードでない場合、新規アラーム追加用にalermを初期化
-            alerm = Alerm(sunnyAlermTime: sunnyAlermDatePicker.date, rainyAlermTime: rainyAlermDatePicker.date)
+        } else { //編集モードでない場合、新規アラーム追加用にalarmを初期化
+            alarm = Alarm(sunnyAlarmTime: sunnyAlarmDatePicker.date, rainyAlarmTime: rainyAlarmDatePicker.date)
         }
     }
     
@@ -87,9 +87,9 @@ class AlermViewController: UIViewController {
 //                return
 //            }
 //
-//            //AddAlermで遷移してきた場合は新規にアラームを生成
-//            //EditAlerm遷移してきた場合はアラームを更新
-//            alerm = Alerm(sunnyAlermTime: SunnyAlermDatePicker.date, rainyAlermTime: RainyAlermDatePicker.date)
+//            //AddAlarmで遷移してきた場合は新規にアラームを生成
+//            //EditAlarm遷移してきた場合はアラームを更新
+//            alarm = Alarm(sunnyAlarmTime: SunnyAlarmDatePicker.date, rainyAlarmTime: RainyAlarmDatePicker.date)
 //            return
 //        }
         
@@ -105,8 +105,8 @@ class AlermViewController: UIViewController {
                     fatalError("Unexpected topViewController: \(String(describing: navigationController.topViewController))")
                 }
                 //次の画面(AlarmStandbyViewController)で表示するためのdate情報を受け渡す
-                alarmStandbyViewController.sunnyAlarmTimeString = alerm?.getSunnyAlarmTimeAsString()
-                alarmStandbyViewController.rainyAlarmTimeString = alerm?.getRainyAlarmTimeAsString()
+                alarmStandbyViewController.sunnyAlarmTimeString = alarm?.getSunnyAlarmTimeAsString()
+                alarmStandbyViewController.rainyAlarmTimeString = alarm?.getRainyAlarmTimeAsString()
             
             //TODO: サウンド選択画面に遷移
             
@@ -115,17 +115,17 @@ class AlermViewController: UIViewController {
         }
     }
     
-    private func saveAlerm() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(alerm, toFile: Alerm.ArchiveURL.path)
+    private func saveAlarm() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(alarm, toFile: Alarm.ArchiveURL.path)
         if isSuccessfulSave {
-            os_log("Alerm successfully saved.", log: OSLog.default, type: .debug)
+            os_log("Alarm successfully saved.", log: OSLog.default, type: .debug)
         } else {
-            os_log("Failed to save alerm...", log: OSLog.default, type: .error)
+            os_log("Failed to save alarm...", log: OSLog.default, type: .error)
         }
     }
 
-    private func loadAlerm() -> Alerm?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Alerm.ArchiveURL.path) as? Alerm
+    private func loadAlarm() -> Alarm?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Alarm.ArchiveURL.path) as? Alarm
     }
 }
 
