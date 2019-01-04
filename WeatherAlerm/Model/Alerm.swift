@@ -40,17 +40,29 @@ class Alerm: NSObject, NSCoding {
     }
     
     //MARK: - Public methods
-//    func getDateAsString() -> String {
-//        // 日付のフォーマッタ
-//        let dateFormatter = DateFormatter()
-//        // 日付の出力形式を決める
-//        dateFormatter.timeStyle = .short
-//        dateFormatter.dateStyle = .none
-//        // TODO: localeはあとで変更
-//        dateFormatter.locale = Locale(identifier: "ja_JP")
-//
-//        return dateFormatter.string(from: sunnyAlermTime)
-//    }
+    public func getSunnyAlarmTimeAsString() -> String {
+        // 日付のフォーマッタ
+        let dateFormatter = DateFormatter()
+        // 日付の出力形式を決める
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        // TODO: localeはあとで変更
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+
+        return dateFormatter.string(from: sunnyAlermTime)
+    }
+    
+    func getRainyAlarmTimeAsString() -> String {
+        // 日付のフォーマッタ
+        let dateFormatter = DateFormatter()
+        // 日付の出力形式を決める
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        // TODO: localeはあとで変更
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        
+        return dateFormatter.string(from: rainyAlermTime)
+    }
     
     
     //MARK: - NSCoding

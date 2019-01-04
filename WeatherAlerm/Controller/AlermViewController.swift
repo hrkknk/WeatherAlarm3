@@ -17,11 +17,14 @@ class AlermViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var sunnyAlermDatePicker: UIDatePicker!
     @IBOutlet weak var rainyAlermDatePicker: UIDatePicker!
+
+    //MARK: - Actions
     @IBAction func alermSetButton(_ sender: UIButton) {
         saveAlerm()
     }
     
-    //MARK: - Actions
+    
+    
 //    @IBAction func cancel(_ sender: UIBarButtonItem) {
 //        //AddAlermで遷移したかEditAlermで遷移したかによってcancelの方法を変える
 //        if presentingViewController is UINavigationController {
@@ -91,16 +94,21 @@ class AlermViewController: UIViewController {
 //        }
         
         switch(segue.identifier ?? "") {
-            //セグエがSelectWeatherだったら画面遷移の準備処理を行う
-            case "SelectWeather":
+            //セグエがAlarmStandbyだったら画面遷移の準備処理を行う
+            case "AlarmStandby":
                 //UINavigationControllerを取得
                 guard let navigationController = segue.destination as? UINavigationController else {
                     fatalError("Unexpected destination: \(segue.destination)")
                 }
-//                //UINavigationControllerの次の画面(WeatherViewController)を取得
-//                guard let weatherViewController = navigationController.topViewController as? WeatherViewController else {
-//                    fatalError("Unexpected topViewController: \(String(describing: navigationController.topViewController))")
-//                }
+                //UINavigationControllerの次の画面(AlarmStandbyViewController)を取得
+                guard let alarmStandbyViewController = navigationController.topViewController as? AlarmStandbyViewController else {
+                    fatalError("Unexpected topViewController: \(String(describing: navigationController.topViewController))")
+                }
+                //次の画面(AlarmStandbyViewController)で表示するためのdate情報を受け渡す
+                alarmStandbyViewController.sunnyAlarmTimeString = alerm?.getSunnyAlarmTimeAsString()
+                alarmStandbyViewController.rainyAlarmTimeString = alerm?.getRainyAlarmTimeAsString()
+            
+            //TODO: サウンド選択画面に遷移
             
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
